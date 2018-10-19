@@ -6,7 +6,7 @@
 /*   By: ychahbar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/04 14:09:32 by ychahbar          #+#    #+#             */
-/*   Updated: 2018/10/16 13:44:39 by gadant           ###   ########.fr       */
+/*   Updated: 2018/10/19 13:11:03 by gadant           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ char	*stocker(char buffer[BUFF_SIZE + 1], char ***stock, char *str, int j)
 //	ft_putstr("\n");
 	return (str);
 }
-
 char	*read_line(char buffer[BUFF_SIZE + 1], int fd, char **stock)
 {
 	char			*str;
@@ -98,7 +97,6 @@ char	*read_line(char buffer[BUFF_SIZE + 1], int fd, char **stock)
 	{
 		str = ft_strndup(*stock, ft_strchr_index(*stock, '\n'));
 		*stock = *stock + ft_strchr_index(*stock, '\n') + 1;
-		ft_putstr("stock 2 :");
 		ft_putendl(*stock);
 		return (str);
 	}
@@ -135,7 +133,9 @@ int		get_next_line(const int fd, char **line)
 		return (-1);
 	if (*read_line == NULL)
 		return (0);
-	return (1);
+	if(*stock)
+		return (1);
+	return (0);
 }
 
 int		main(int argc, char **argv)
