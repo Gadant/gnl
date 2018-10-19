@@ -6,12 +6,13 @@
 /*   By: gadant <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 10:26:51 by gadant            #+#    #+#             */
-/*   Updated: 2018/10/19 13:54:47 by gadant           ###   ########.fr       */
+/*   Updated: 2018/10/19 14:09:24 by gadant           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "get_next_line.h"
 
-int		main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	int		fd;
 	char	*line;
@@ -20,9 +21,10 @@ int		main(int argc, char **argv)
 	if (argc == 1)
 		fd = 0;
 	else if (argc == 2)
-		fd = open(argv[1], O_RDONLY);
-	else										return (2);
-	if (get_next_line(fd, &line) == 1)
+			fd = open(argv[1], O_RDONLY);
+		else
+			return (2);
+/*	if (get_next_line(fd, &line) == 1)
 	{
 		ft_putendl("AVANT :");
 		ft_putstr("line :");
@@ -74,27 +76,25 @@ int		main(int argc, char **argv)
 	{
 		ft_putstr("line :");
 		ft_putendl(line);
-	}
-	/*
-	 while (get_next_line(fd, &line))
+	}*/
+	while (get_next_line(fd, &line))
 	{
 			ft_putstr("line :");
 			ft_putendl(line);
-	}*/
+	}
 	close(fd);
 	return (0);
 }
 
-
-int		get_next_line(const int fd, char **line)
+int				get_next_line(const int fd, char **line)
 {
 	static char	*stock = NULL;
 	char		buffer[BUFF_SIZE + 1];
 
-	if (BUFF_SIZE <= 0 || fd < 0 || !line || (stock ==NULL && 
-	!(stock = ft_strnew(0))))
+	if (BUFF_SIZE <= 0 || fd < 0 || !line || (stock == NULL && \
+		!(stock = ft_strnew(0))))
 		return (-1);
-	if (!(stock =  read_line(stock, buffer, fd)))
+	if (!(stock = read_line(stock, buffer, fd)))
 		return (-1);
 	if (*stock)
 	{
@@ -106,12 +106,11 @@ int		get_next_line(const int fd, char **line)
 			stock = NULL;
 		}
 		return (1);
-
 	}
 	return (0);
 }
 
-char	*read_line(char *stock, char *buffer, int fd)
+char		*read_line(char *stock, char *buffer, int fd)
 {
 	int		ret;
 
@@ -137,7 +136,7 @@ char		*stocker(char **stock)
 	buffer = ft_strchr(*stock, '\n');
 	if (buffer)
 	{
-		if(!(line = ft_strndup(*stock, ft_strchr_index(*stock, '\n'))))
+		if (!(line = ft_strndup(*stock, ft_strchr_index(*stock, '\n'))))
 			return (NULL);
 		*stock = *stock + ft_strchr_index(*stock, '\n') + 1;
 	}
@@ -176,4 +175,3 @@ char				*ft_strndup(const char *str, int n)
 	s[i] = '\0';
 	return (s);
 }
-
