@@ -6,90 +6,16 @@
 /*   By: gadant <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 10:26:51 by gadant            #+#    #+#             */
-/*   Updated: 2018/10/19 14:09:24 by gadant           ###   ########.fr       */
+/*   Updated: 2018/10/19 14:25:17 by gadant           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int			main(int argc, char **argv)
+int					get_next_line(const int fd, char **line)
 {
-	int		fd;
-	char	*line;
-
-	line = NULL;
-	if (argc == 1)
-		fd = 0;
-	else if (argc == 2)
-			fd = open(argv[1], O_RDONLY);
-		else
-			return (2);
-/*	if (get_next_line(fd, &line) == 1)
-	{
-		ft_putendl("AVANT :");
-		ft_putstr("line :");
-		ft_putendl(line);
-		ft_putendl("APRES :");
-	}
-	if (get_next_line(fd, &line) == 1)
-	{
-		ft_putendl("AVANT :");
-		ft_putstr("line :");
-		ft_putendl(line);
-		ft_putendl("APRES :");
-	}
-	if (get_next_line(fd, &line) == 1)												{
-		ft_putstr("line :");
-		ft_putendl(line);
-	}
-	if (get_next_line(fd, &line) == 1)
-	{
-		ft_putstr("line :");
-		ft_putendl(line);
-	}
-	if (get_next_line(fd, &line) == 1)
-	{
-		ft_putstr("line :");
-		ft_putendl(line);
-	}
-	if (get_next_line(fd, &line) == 1)
-	{
-		ft_putstr("line :");
-		ft_putendl(line);
-	}
-	if (get_next_line(fd, &line) == 1)
-	{
-		ft_putstr("line :");
-		ft_putendl(line);
-	}
-	if (get_next_line(fd, &line) == 1)
-	{
-		ft_putstr("line :");
-		ft_putendl(line);
-	}
-	if (get_next_line(fd, &line) == 1)
-	{
-		ft_putstr("line :");
-		ft_putendl(line);
-	}
-	if (get_next_line(fd, &line) == 1)
-	{
-		ft_putstr("line :");
-		ft_putendl(line);
-	}*/
-	while (get_next_line(fd, &line))
-	{
-			ft_putstr("line :");
-			ft_putendl(line);
-	}
-	close(fd);
-	return (0);
-}
-
-int				get_next_line(const int fd, char **line)
-{
-	static char	*stock = NULL;
-	char		buffer[BUFF_SIZE + 1];
+	static char		*stock = NULL;
+	char			buffer[BUFF_SIZE + 1];
 
 	if (BUFF_SIZE <= 0 || fd < 0 || !line || (stock == NULL && \
 		!(stock = ft_strnew(0))))
@@ -110,9 +36,9 @@ int				get_next_line(const int fd, char **line)
 	return (0);
 }
 
-char		*read_line(char *stock, char *buffer, int fd)
+char				*read_line(char *stock, char *buffer, int fd)
 {
-	int		ret;
+	int				ret;
 
 	ret = 1;
 	while (!(ft_strchr(stock, '\n')) && ret > 0)
@@ -128,10 +54,10 @@ char		*read_line(char *stock, char *buffer, int fd)
 	return (stock);
 }
 
-char		*stocker(char **stock)
+char				*stocker(char **stock)
 {
-	char	*buffer;
-	char	*line;
+	char			*buffer;
+	char			*line;
 
 	buffer = ft_strchr(*stock, '\n');
 	if (buffer)
@@ -145,9 +71,9 @@ char		*stocker(char **stock)
 	return (line);
 }
 
-int			ft_strchr_index(char *str, char c)
+int					ft_strchr_index(char *str, char c)
 {
-	int		i;
+	int				i;
 
 	i = 0;
 	while (str[i] && str[i] != c)
