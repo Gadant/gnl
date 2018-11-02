@@ -6,7 +6,7 @@
 #    By: ychahbar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/26 13:00:50 by ychahbar          #+#    #+#              #
-#    Updated: 2018/09/08 10:42:08 by ychahbar         ###   ########.fr        #
+#    Updated: 2018/11/02 12:42:48 by gadant           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,8 @@ SRC = 	ft_bzero.c \
 		ft_lstdelone.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c \
+		ft_strndup.c
 
 OBJ =	ft_bzero.o \
 		ft_memcpy.o \
@@ -128,7 +129,8 @@ OBJ =	ft_bzero.o \
 		ft_lstdelone.o \
 		ft_lstadd.o \
 		ft_lstiter.o \
-		ft_lstmap.o
+		ft_lstmap.o \
+		ft_strndup.o
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -c -I

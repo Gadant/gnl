@@ -6,7 +6,7 @@
 /*   By: ychahbar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 13:00:14 by ychahbar          #+#    #+#             */
-/*   Updated: 2018/07/06 14:26:18 by ychahbar         ###   ########.fr       */
+/*   Updated: 2018/11/02 12:41:33 by gadant           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+char				*ft_strndup(const char *str, int n);
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);

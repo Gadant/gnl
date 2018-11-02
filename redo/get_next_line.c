@@ -6,7 +6,7 @@
 /*   By: gadant <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 10:26:51 by gadant            #+#    #+#             */
-/*   Updated: 2018/10/19 14:25:17 by gadant           ###   ########.fr       */
+/*   Updated: 2018/11/02 12:50:18 by gadant           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char				*stocker(char **stock)
 
 int					ft_strchr_index(char *str, char c)
 {
-	int				i;
+	size_t			i;
 
 	i = 0;
 	while (str[i] && str[i] != c)
@@ -83,21 +83,4 @@ int					ft_strchr_index(char *str, char c)
 	if (i == ft_strlen(str))
 		return (0);
 	return (i);
-}
-
-char				*ft_strndup(const char *str, int n)
-{
-	unsigned int	i;
-	char			*s;
-
-	if ((s = (char *)malloc(sizeof(char *) * (n))) == 0)
-		return (NULL);
-	i = 0;
-	while (str[i] && i < n)
-	{
-		s[i] = str[i];
-		i++;
-	}
-	s[i] = '\0';
-	return (s);
 }

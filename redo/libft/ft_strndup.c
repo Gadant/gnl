@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gadant <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/19 14:20:51 by gadant            #+#    #+#             */
-/*   Updated: 2018/10/19 14:23:05 by gadant           ###   ########.fr       */
+/*   Created: 2018/11/02 12:39:04 by gadant            #+#    #+#             */
+/*   Updated: 2018/11/02 12:47:32 by gadant           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+char		*ft_strndup(const char *str, int n)
 {
-	int		fd;
-	char	*line;
+	int		i;
+	char	*s;
 
-	line = NULL;
-	if (argc == 1)
-		fd = 0;
-	else if (argc == 2)
-			fd = open(argv[1], O_RDONLY);
-		else 
-			return (2);
-	while (get_next_line(fd, &line))
+	if ((s = (char *)malloc(sizeof(char *) * (n))) == 0)
+		return (NULL);
+	i = 0;
+	while (str[i] && i < n)
 	{
-		ft_putstr("line :");
-		ft_putendl(line);
+		s[i] = str[i];
+		i++;
 	}
-	close(fd);
-	return (0);
+	s[i] = '\0';
+	return (s);
 }
-
